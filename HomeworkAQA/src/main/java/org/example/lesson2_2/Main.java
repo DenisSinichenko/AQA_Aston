@@ -36,7 +36,7 @@ public class Main {
         task8.printStringCount("Hello",4);
         System.out.println("------------------------------------------------------------");
         System.out.println(task9.visokosnyiYear(2016));
-        System.out.println("------------------------------------------------------------");
+        System.out.println("-------------------------------------------------------------");
         task10.replaceNumberInArray();
         System.out.println("\n------------------------------------------------------------");
         task11.array100();
