@@ -8,7 +8,6 @@ public class Product {
     private double price;
     private boolean isReserved;
 
-
     public Product(String name, String manufactureDate, String manufacturer, String originCountry, double price, boolean isReserved) {
         this.name = name;
         this.manufactureDate = manufactureDate;
@@ -17,7 +16,6 @@ public class Product {
         this.price = price;
         this.isReserved = isReserved;
     }
-
 
     public String getName() {
         return name;

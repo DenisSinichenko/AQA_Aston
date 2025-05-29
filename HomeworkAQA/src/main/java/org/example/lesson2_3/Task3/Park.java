@@ -2,13 +2,13 @@ package org.example.lesson2_3.Task3;
 
 public class Park {
     private String name;
-    private Attraction attraction1;
-    private Attraction attraction2;
-    private Attraction attraction3;
+    private Attraction[] attractions;
+    private int count; // Счетчик аттракционов
 
-    // Конструктор парка
     public Park(String name) {
         this.name = name;
+        this.attractions = new Attraction[10]; // Фиксированный размер массива
+        this.count = 0;
     }
 
     // Вложенный класс Аттракцион
@@ -34,36 +34,21 @@ public class Park {
         public double getPrice() {
             return price;
         }
-
     }
 
-    public void setAttraction1(Attraction attraction) {
-        this.attraction1 = attraction;
+    public void addAttraction(Attraction attraction) {
+        if (count < attractions.length) {
+            attractions[count] = attraction;
+            count++;
+        } else {
+            System.out.println("Нельзя добавить больше аттракционов!");
+        }
     }
 
-    public void setAttraction2(Attraction attraction) {
-        this.attraction2 = attraction;
+    public void printAttractions() {
+        System.out.println("Название парка: " + name);
+        for (int i = 0; i < count; i++) {
+            System.out.println("Аттракцион: " + attractions[i].getName() + ", Время работы: " + attractions[i].getWorkHours() + ", Цена: " + attractions[i].getPrice());
+        }
     }
-
-    public void setAttraction3(Attraction attraction) {
-        this.attraction3 = attraction;
-    }
-
-    public Attraction getAttraction1() {
-        return attraction1;
-    }
-
-    public Attraction getAttraction2() {
-        return attraction2;
-    }
-
-    public Attraction getAttraction3() {
-        return attraction3;
-    }
-
-    // Геттер для имени парка
-    public String getName() {
-        return name;
-    }
-
 }
