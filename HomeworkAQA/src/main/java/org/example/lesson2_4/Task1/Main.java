@@ -1,9 +1,5 @@
 package org.example.lesson2_4.Task1;
 
-import org.example.lesson2_4.Task1.Bowl;
-import org.example.lesson2_4.Task1.Cat;
-import org.example.lesson2_4.Task1.Dog;
-
 public class Main {
     public static void main(String[] args) {
         Dog dog = new Dog("Бобик");
