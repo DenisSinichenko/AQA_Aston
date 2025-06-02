@@ -22,24 +22,20 @@ public class Main {
             cat.run(150);
             cat.swim(10);
         }
-
+        System.out.println("-------------------------------");
         System.out.println("Еды в миске: " + bowl.getFoodAmount());
 
         for (Cat cat : cats) {
-            cat.eat(bowl);
-            System.out.println(cat.getName() + " сыт? " + cat.isFull());
-        }
-
-        System.out.println("Остаток еды в миске: " + bowl.getFoodAmount());
-
-        bowl.addFood(10);
-        System.out.println("Пополнение миски. Еды теперь: " + bowl.getFoodAmount());
-
-        for (Cat cat : cats) {
-            if (!cat.isFull()) {
-                cat.eat(bowl);
-                System.out.println(cat.getName() + " сыт? " + cat.isFull());
+            int foodAmount = (int) (Math.random() * 10 + 1);
+            if (bowl.getFoodAmount() < foodAmount) {
+                System.out.println(cat.getName() + " не стал есть, еды недостаточно.");
+            } else {
+                cat.eat(bowl, foodAmount);
+                System.out.println(cat.getName() + " поел " + foodAmount + " единиц еды и теперь сыт? " + cat.isFull());
             }
         }
+        System.out.println("Остаток еды в миске: " + bowl.getFoodAmount());
+        bowl.addFood(10);
+        System.out.println("Пополнение миски. Еды теперь: " + bowl.getFoodAmount());
     }
 }

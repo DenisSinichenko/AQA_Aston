@@ -7,10 +7,10 @@ public class Cat extends Animal {
         super(name, 200, 0);
     }
 
-    public void eat(Bowl bowl) {
-        if (bowl.decreaseFood(5)) {
+    public void eat(Bowl bowl, int amount) {
+        if (bowl.decreaseFood(amount)) {
             isFull = true;
-            System.out.println(name + " поел и теперь сыт");
+            System.out.println(name + " поел " + amount + " единиц и теперь сыт");
         } else {
             System.out.println(name + " не смог поесть, недостаточно еды");
         }

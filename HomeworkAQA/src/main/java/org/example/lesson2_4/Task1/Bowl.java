@@ -9,14 +9,14 @@ public class Bowl {
 
     public boolean decreaseFood(int amount) {
         if (foodAmount >= amount) {
-            foodAmount -= amount;
+            foodAmount = foodAmount - amount;
             return true;
         }
         return false;
     }
 
     public void addFood(int amount) {
-        foodAmount += amount;
+        foodAmount = foodAmount + amount;
         System.out.println("Добавлено " + amount + " еды в миску.");
     }
 
