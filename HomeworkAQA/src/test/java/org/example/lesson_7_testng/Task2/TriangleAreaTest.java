@@ -6,28 +6,37 @@ import org.testng.annotations.Test;
 public class TriangleAreaTest {
 
     @Test
-    public void testTriangleAreaWithValidValues() {
-        double result = TriangleArea.calculateTriangleArea(10, 2);
-        Assert.assertEquals(result, 10.0, "Площадь треугольника должна быть 10.0");
+    public void testTriangleAreaWithPositiveNumbers() {
+        Assert.assertEquals(TriangleArea.calculateTriangleArea(4, 5), 10.0, "Ошибка в расчёте площади");
     }
 
     @Test
-    public void testTriangleAreaWithInvalidValues() {
+    public void testTriangleAreaWithZeroHeightThrowsException() {
         try {
-            TriangleArea.calculateTriangleArea(0, 5);
+            TriangleArea.calculateTriangleArea(5, 0);
             Assert.fail("Должно быть выброшено исключение IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            Assert.assertEquals(e.getMessage(), "Стороны треугольника должны быть > 0");
+            Assert.assertEquals(e.getMessage(), "Основание и высота должны быть > 0");
         }
     }
 
     @Test
-    public void testTriangleAreaWithNegativeValues() {
+    public void testTriangleAreaWithZeroBaseThrowsException() {
         try {
-            TriangleArea.calculateTriangleArea(-10, 2);
+            TriangleArea.calculateTriangleArea(0, 5);
             Assert.fail("Должно быть выброшено исключение IllegalArgumentException");
         } catch (IllegalArgumentException e) {
-            Assert.assertEquals(e.getMessage(), "Стороны треугольника должны быть > 0");
+            Assert.assertEquals(e.getMessage(), "Основание и высота должны быть > 0");
+        }
+    }
+
+    @Test
+    public void testTriangleAreaWithNegativeValuesThrowsException() {
+        try {
+            TriangleArea.calculateTriangleArea(-4, 5);
+            Assert.fail("Должно быть выброшено исключение IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            Assert.assertEquals(e.getMessage(), "Основание и высота должны быть > 0");
         }
     }
 }

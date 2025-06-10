@@ -1,9 +1,9 @@
 package org.example.lesson_7_testng.Task2;
 
 public class TriangleArea {
-    public static double calculateTriangleArea(int a, int h) {
+    public static double calculateTriangleArea(double a, double h) {
         if (a <= 0 || h <= 0) {
-            throw new IllegalArgumentException("Стороны треугольника должны быть > 0");
+            throw new IllegalArgumentException("Основание и высота должны быть > 0");
         }
         return 0.5 * a * h;
     }

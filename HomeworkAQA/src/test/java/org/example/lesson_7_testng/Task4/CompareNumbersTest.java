@@ -16,6 +16,15 @@ public class CompareNumbersTest {
     }
 
     @Test
+    void testFirstNumberGreater2() {
+        Assert.assertEquals(CompareNumbers.compareNumbers(5, -1), "5 > -1", "5 должно быть больше -1");
+    }
+    @Test
+    void testNegativeGreaterThan() {
+        Assert.assertEquals(CompareNumbers.compareNumbers(-1, -5), "-1 > -5", "-1 должно быть больше -5");
+    }
+
+    @Test
     public void testNumbersAreEqual() {
         Assert.assertEquals(CompareNumbers.compareNumbers(5, 5), "5 = 5", "Числа должны быть равны");
     }
