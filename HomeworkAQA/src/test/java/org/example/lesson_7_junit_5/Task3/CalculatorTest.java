@@ -28,6 +28,26 @@ class CalculatorTest {
     }
 
     @Test
+    void testSumWithNegativeNumbers1() {
+        assertEquals(-2, Calculator.sumNumbers(-5, 3));
+    }
+
+    @Test
+    void testSumWithNegativeNumbers2() {
+        assertEquals(-8, Calculator.sumNumbers(-5, -3));
+    }
+
+    @Test
+    void testDivNegativeNumbers() {
+        assertEquals(-2, Calculator.divNumbers(-10, 5));
+    }
+
+    @Test
+    void testMulNegativeNumbers() {
+        assertEquals(-25, Calculator.mulNumbers(-5, 5));
+    }
+
+    @Test
     void divNumbersByZero() {
         try {
             Calculator.divNumbers(5, 0);

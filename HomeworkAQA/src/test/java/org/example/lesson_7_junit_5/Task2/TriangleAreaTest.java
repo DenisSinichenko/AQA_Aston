@@ -11,17 +11,32 @@ public class TriangleAreaTest {
     }
 
     @Test
-    void testTriangleAreaWithZeroHeight() {
-        assertEquals(0.0, TriangleArea.calculateTriangleArea(5, 0));
+    void testTriangleAreaWithZeroHeightThrowsException() {
+        try {
+            TriangleArea.calculateTriangleArea(5, 0);
+            fail("Должно быть выброшено исключение IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Основание и высота должны быть больше 0", e.getMessage());
+        }
     }
 
     @Test
-    void testTriangleAreaWithZeroBase() {
-        assertEquals(0.0, TriangleArea.calculateTriangleArea(0, 5));
+    void testTriangleAreaWithZeroBaseThrowsException() {
+        try {
+            TriangleArea.calculateTriangleArea(0, 5);
+            fail("Должно быть выброшено исключение IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Основание и высота должны быть больше 0", e.getMessage());
+        }
     }
 
     @Test
-    void testTriangleAreaWithNegativeValues() {
-        assertEquals(-10.0, TriangleArea.calculateTriangleArea(-4, 5));
+    void testTriangleAreaWithNegativeValuesThrowsException() {
+        try {
+            TriangleArea.calculateTriangleArea(-4, 5);
+            fail("Должно быть выброшено исключение IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Основание и высота должны быть больше 0", e.getMessage());
+        }
     }
 }
