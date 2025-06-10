@@ -1,7 +1,7 @@
 package org.example.lesson_7_junit_5.Task2;
 
 public class TriangleArea {
-    public static double calculateTriangleArea(double a, double h) {
+    public double calculateTriangleArea(double a, double h) {
         if (a <= 0 || h <= 0) {
             throw new IllegalArgumentException("Основание и высота должны быть больше 0");
         }
