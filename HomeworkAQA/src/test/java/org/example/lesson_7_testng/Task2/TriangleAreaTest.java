@@ -1,19 +1,27 @@
 package org.example.lesson_7_testng.Task2;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TriangleAreaTest {
 
+    private TriangleArea triangleArea;
+
+    @BeforeMethod
+    public void setVariable() {
+        triangleArea = new TriangleArea();
+    }
+
     @Test
     public void testTriangleAreaWithPositiveNumbers() {
-        Assert.assertEquals(TriangleArea.calculateTriangleArea(4, 5), 10.0, "Ошибка в расчёте площади");
+        Assert.assertEquals(triangleArea.calculateTriangleArea(4, 5), 10.0, "Ошибка в расчёте площади");
     }
 
     @Test
-    public void testTriangleAreaWithZeroHeightThrowsException() {
+    public void testTriangleAreaWithZeroHeight() {
         try {
-            TriangleArea.calculateTriangleArea(5, 0);
+            triangleArea.calculateTriangleArea(5, 0);
             Assert.fail("Должно быть выброшено исключение IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             Assert.assertEquals(e.getMessage(), "Основание и высота должны быть > 0");
@@ -21,9 +29,9 @@ public class TriangleAreaTest {
     }
 
     @Test
-    public void testTriangleAreaWithZeroBaseThrowsException() {
+    public void testTriangleAreaWithZeroBase() {
         try {
-            TriangleArea.calculateTriangleArea(0, 5);
+            triangleArea.calculateTriangleArea(0, 5);
             Assert.fail("Должно быть выброшено исключение IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             Assert.assertEquals(e.getMessage(), "Основание и высота должны быть > 0");
@@ -31,9 +39,9 @@ public class TriangleAreaTest {
     }
 
     @Test
-    public void testTriangleAreaWithNegativeValuesThrowsException() {
+    public void testTriangleAreaWithNegativeValues() {
         try {
-            TriangleArea.calculateTriangleArea(-4, 5);
+            triangleArea.calculateTriangleArea(-4, 5);
             Assert.fail("Должно быть выброшено исключение IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             Assert.assertEquals(e.getMessage(), "Основание и высота должны быть > 0");
