@@ -10,22 +10,22 @@ class CalculatorTest {
 
     @Test
     void testSumNumbers() {
-        assertEquals(10, calculator.sumNumbers(5,5));
+        assertEquals(10, calculator.sumNumbers(5, 5));
     }
 
     @Test
     void testDifNumbers() {
-        assertEquals(0, calculator.difNumbers(5,5));
+        assertEquals(0, calculator.difNumbers(5, 5));
     }
 
     @Test
     void testDivNumbers() {
-        assertEquals(1, calculator.divNumbers(5,5));
+        assertEquals(1, calculator.divNumbers(5, 5));
     }
 
     @Test
     void testMulNumbers() {
-        assertEquals(25, calculator.mulNumbers(5,5));
+        assertEquals(25, calculator.mulNumbers(5, 5));
     }
 
     @Test
