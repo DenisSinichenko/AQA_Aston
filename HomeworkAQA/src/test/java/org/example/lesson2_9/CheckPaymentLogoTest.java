@@ -18,7 +18,7 @@ public class CheckPaymentLogoTest {
         driver.get("https://www.mts.by/");
 
         WebElement visa = driver.findElement(By.xpath("//img[@alt='Visa']"));
-        WebElement masterCard = driver.findElement(By.xpath("//img[@alt='MasterCard Secure Code']"));
+        WebElement masterCard = driver.findElement(By.xpath("//img[@alt='MasterCard']"));
         WebElement masterCardSecure = driver.findElement(By.xpath("//img[@alt='MasterCard Secure Code']"));
         WebElement belCart = driver.findElement(By.xpath("//img[@alt='Белкарт']"));
         WebElement verifiedByVisa = driver.findElement(By.xpath("//img[@alt='Verified By Visa']"));
