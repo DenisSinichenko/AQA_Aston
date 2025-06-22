@@ -1,20 +1,16 @@
 package org.example.lesson2_10;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.example.lesson2_10.TranslateLesson2_9ToPageObject.MainPage;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CheckPlaceholdersTest {
+public class CheckPlaceholdersTest extends BaseTest{
 
     @Test
     public void testPlaceholdersForEachOption() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-
-        driver.get("https://www.mts.by/");
+        MainPage mainPage = new MainPage(driver);
+        mainPage.open();
 
         PaymentFormPage formPage = new PaymentFormPage(driver);
         formPage.selectOption("Услуги связи");
@@ -40,7 +36,5 @@ public class CheckPlaceholdersTest {
         assertEquals("Номер счета на 2073", formPage.getPlaceholderById("score-arrears"));
         assertEquals("Сумма", formPage.getPlaceholderById("arrears-sum"));
         assertEquals("E-mail для отправки чека", formPage.getPlaceholderById("arrears-email"));
-
-        driver.quit();
     }
 }

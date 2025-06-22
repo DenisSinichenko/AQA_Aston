@@ -1,19 +1,14 @@
 package org.example.lesson2_10;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.example.lesson2_10.TranslateLesson2_9ToPageObject.MainPage;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class PaymentFramePageMoreChecksTest {
+public class PaymentFramePageMoreChecksTest extends BaseTest{
 
     @Test
     public void testPaymentFrameContents() {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
 
         MainPage mainPage = new MainPage(driver);
         PaymentFramePageMoreChecks paymentFrame = new PaymentFramePageMoreChecks(driver);
@@ -32,7 +27,5 @@ public class PaymentFramePageMoreChecksTest {
 
         paymentFrame.checkCardFieldPlaceholders();
         paymentFrame.checkPaymentSystemIcons();
-
-        driver.quit();
     }
 }
