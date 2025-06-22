@@ -2,9 +2,7 @@ package org.example.lesson2_9;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,14 +10,12 @@ import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class FillTheFieldsTest {
+public class FillTheFieldsTest extends BaseTest{
 
     @Test
     public void testSubmitCommunicationServiceForm() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 
-        WebDriver driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); //Добавил ожидание, а то что-то грузилось медленно и тест падал
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.get("https://www.mts.by/");
 
@@ -33,7 +29,5 @@ public class FillTheFieldsTest {
 
         WebElement confirm = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Услуги связи')]")));
         assertTrue(confirm.getText().contains("375297777777"), "Номер не подтвержден");
-
-        driver.quit();
     }
 }
